@@ -15,7 +15,7 @@ class CountriesView extends GetView<CountriesController> with UiStateViewMixin {
     return Scaffold(
       body: Center(
         child: Obx(() {
-          return handleUiState<CountryEntity>(controller.countriesUiState,onSuccessCountries);
+          return handleUiState<CountryEntity>(controller.countriesUiState.value,onSuccessCountries , loadingWidget: (LoadingType type)=> Text("Am loading"));
         }),
       ),
     );

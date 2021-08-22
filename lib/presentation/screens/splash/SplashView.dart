@@ -12,7 +12,6 @@ class SplashView extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      subscribeToTimer();
       return Scaffold(
         body: Center(
           child: Image.asset(controller.splashIcon.value),
@@ -21,9 +20,4 @@ class SplashView extends GetView<SplashController> {
     });
   }
 
-  void subscribeToTimer() {
-    controller.counter.addListener(GetStream(onListen: () {
-      if (controller.counter.value <= 0) Get.rootDelegate.toNamed(Routes.MAIN_LOGIN);
-    }));
-  }
 }

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:get/get.dart';
 import 'package:your_sooq/data/repositories/splash/ISplashRepository.dart';
+import 'package:your_sooq/navigation/AppRoutes.dart';
 import 'package:your_sooq/utils/ImagesConstants.dart';
 
 class SplashController extends GetxController with StateMixin<int> {
@@ -30,7 +31,9 @@ class SplashController extends GetxController with StateMixin<int> {
   void decrement() {
     if (counter.value > 0)
       counter.value--;
-    else
+    else {
       timer.cancel();
+      Get.rootDelegate.toNamed(Routes.MAIN_LOGIN) ;
+    }
   }
 }
